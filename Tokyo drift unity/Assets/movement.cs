@@ -5,12 +5,15 @@ public class movement : MonoBehaviour
     public float moveSpeed = 2f;
     public float pitchthreshold = 20f;
     [SerializeField] private Transform vrcam;
+    [SerializeField] private Transform car;
+    public float rotthreshold = 2f;
 
     [SerializeField] private CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         vrcam = Camera.main.transform;
+        
         characterController = GetComponent<CharacterController>();
     }
 
@@ -26,6 +29,12 @@ public class movement : MonoBehaviour
             moveDir.Normalize();
 
             characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
+        }
+
+        float rotAngle = vrcam.rotation.y;
+        if (rotAngle < 360f - rotAngle)
+        {
+            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y+180f,0);
         }
     }
 }

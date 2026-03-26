@@ -11,6 +11,9 @@ public class movement : MonoBehaviour
     public float turnRThreshold = 0.5f;
     public float turnLThreshold = -0.5f;
 
+    public float forThreshold = 0.2f;
+    public float backThreshold = -0.2f;
+
 
     [SerializeField] private CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,14 +30,14 @@ public class movement : MonoBehaviour
     {
         float angle = vrcam.position.x;
 
-        if (vrcam.position.z > OgPos.position.z)
+        if (vrcam.position.z > OgPos.position.z+forThreshold)
         {
             Vector3 moveDir = car.forward;
             moveDir.y = 0f;
             moveDir.Normalize();
             characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
         }
-        else if (vrcam.position.z < OgPos.position.z)
+        else if (vrcam.position.z < OgPos.position.z+backThreshold)
         {
             Vector3 moveDir = -car.forward;
             moveDir.y = 0f;

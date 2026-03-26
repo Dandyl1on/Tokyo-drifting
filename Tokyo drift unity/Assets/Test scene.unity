@@ -2263,8 +2263,10 @@ MonoBehaviour:
   vrcam: {fileID: 592268983}
   OgPos: {fileID: 1472781639}
   car: {fileID: 242316844}
-  turnRThreshold: 0.5
-  turnLThreshold: -0.5
+  turnRThreshold: 0.2
+  turnLThreshold: -0.2
+  forThreshold: 0.2
+  backThreshold: -0.2
   characterController: {fileID: 2130211224}
 --- !u!143 &2130211224
 CharacterController:

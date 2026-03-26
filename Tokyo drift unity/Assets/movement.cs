@@ -3,14 +3,13 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     public float moveSpeed = 10f;
-    public float pitchthreshold = 10f;
     [SerializeField] private Transform vrcam;
     [SerializeField] private Transform OgPos;
-    [SerializeField] private float maxspeed = 100f;
     
     [SerializeField] private Transform car;
-    public float rotthreshold = 2f;
-    
+
+    public float turnRThreshold = 0.5f;
+    public float turnLThreshold = -0.5f;
 
 
     [SerializeField] private CharacterController characterController;
@@ -28,28 +27,41 @@ public class movement : MonoBehaviour
     {
         float angle = vrcam.position.x;
 
-        if (vrcam.position.x > OgPos.position.x)
+        if (vrcam.position.z > OgPos.position.z)
         {
-            Vector3 moveDir = vrcam.forward;
+            Vector3 moveDir = car.forward;
             moveDir.y = 0f;
             moveDir.Normalize();
             characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
-
         }
-        
-        /*if (angle > pitchthreshold && angle < 360f - pitchthreshold)
+        else if (vrcam.position.z < OgPos.position.z)
         {
-            Vector3 moveDir = vrcam.forward;
+            Vector3 moveDir = -car.forward;
             moveDir.y = 0f;
             moveDir.Normalize();
+            characterController.Move(moveDir * (moveSpeed * Time.deltaTime)); 
+        }
 
+        
+        if (vrcam.position.x > OgPos.position.x+turnRThreshold)
+        {
+            Vector3 moveDir = car.right;
+            moveDir.y = 0f;
+            moveDir.Normalize();
             characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
+        }
+        else if (vrcam.position.x < OgPos.position.x+turnLThreshold)
+        {
+            Vector3 moveDir = -car.right;
+            moveDir.y = 0f;
+            moveDir.Normalize();
+            characterController.Move(moveDir * (moveSpeed * Time.deltaTime));   
         }
 
         float rotAngle = vrcam.rotation.y;
-        if (rotAngle < 360f - rotAngle)
+        if (rotAngle < 360f)
         {
-            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y+180f,0);
-        }*/
+            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
+        }
     }
 }

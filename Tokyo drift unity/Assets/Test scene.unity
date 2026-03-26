@@ -145,12 +145,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5165315}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.4519819, y: 0.19574112, z: 1.2351714}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.4519806, y: 0.19574112, z: -1.2351685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5165317
 MeshRenderer:
@@ -274,6 +274,45 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95fa7fc8bfed17d498b877fadc1697fc, type: 3}
+--- !u!1 &242316843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242316844}
+  m_Layer: 0
+  m_Name: CarTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &242316844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242316843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 902227782}
+  - {fileID: 1131864290}
+  - {fileID: 1164456828}
+  - {fileID: 1682987518}
+  - {fileID: 5165316}
+  - {fileID: 1023894517}
+  - {fileID: 371652580}
+  - {fileID: 372136582}
+  m_Father: {fileID: 2130211226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &294767330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -365,12 +404,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371652579}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.46677905, y: 0.19574016, z: -1.1343098}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.4667778, y: 0.19574016, z: 1.1343079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &371652581
 MeshRenderer:
@@ -455,12 +494,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372136581}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: -0.43454814, y: 0.19574016, z: -1.134311}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: 0.43454742, y: 0.19574016, z: 1.1343079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &372136583
 MeshRenderer:
@@ -688,7 +727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592268982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
   m_Name: 
@@ -893,12 +932,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902227781}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.0032140156, y: 0.29892105, z: -0.08695897}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.0032157898, y: 0.29892105, z: 0.08695984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &902227783
 MeshRenderer:
@@ -1113,12 +1152,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023894516}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: -0.41139776, y: 0.19574112, z: 1.2351726}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: 0.41139603, y: 0.19574112, z: -1.2351685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1023894518
 MeshRenderer:
@@ -1398,12 +1437,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131864289}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.0031961799, y: 0.35408348, z: -0.36545572}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.0031967163, y: 0.35408348, z: 0.36546326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1131864291
 MeshRenderer:
@@ -1488,12 +1527,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164456827}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.0031710789, y: 0.1876964, z: 1.2035534}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.0031700134, y: 0.1876964, z: -1.2035522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1164456829
 MeshRenderer:
@@ -1617,45 +1656,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2953943eb6ab8e24081b12ab3f22a4b3, type: 3}
---- !u!1 &1396690865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1396690866}
-  m_Layer: 0
-  m_Name: Cartransform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1396690866
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396690865}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 902227782}
-  - {fileID: 1131864290}
-  - {fileID: 1164456828}
-  - {fileID: 1682987518}
-  - {fileID: 5165316}
-  - {fileID: 1023894517}
-  - {fileID: 371652580}
-  - {fileID: 372136582}
-  m_Father: {fileID: 2130211226}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1472781638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,12 +1778,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682987517}
   serializedVersion: 2
-  m_LocalRotation: {x: -6.123235e-17, y: 1, z: 6.123234e-17, w: 0}
-  m_LocalPosition: {x: 0.0031723306, y: 0.19927591, z: -1.137785}
+  m_LocalRotation: {x: 6.123234e-17, y: -0, z: 6.123235e-17, w: -1}
+  m_LocalPosition: {x: -0.0031738281, y: 0.19927591, z: 1.1377869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1396690866}
+  m_Father: {fileID: 242316844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1682987519
 MeshRenderer:
@@ -2260,12 +2260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movement
   moveSpeed: 10
-  pitchthreshold: 20
   vrcam: {fileID: 592268983}
   OgPos: {fileID: 1472781639}
-  maxspeed: 40
-  car: {fileID: 1396690866}
-  rotthreshold: 2
+  car: {fileID: 242316844}
   characterController: {fileID: 2130211224}
 --- !u!143 &2130211224
 CharacterController:
@@ -2323,11 +2320,11 @@ Transform:
   m_GameObject: {fileID: 2130211222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.1, y: 0.039338946, z: 201.4}
+  m_LocalPosition: {x: 62.2, y: 0.039338946, z: 201.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1396690866}
+  - {fileID: 242316844}
   - {fileID: 1472781639}
   - {fileID: 592268983}
   m_Father: {fileID: 0}

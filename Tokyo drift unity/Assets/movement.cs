@@ -62,11 +62,20 @@ public class movement : MonoBehaviour
         {
             characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
         }
+        
 
-        float rotAngle = vrcam.rotation.y;
-        if (rotAngle < 360f)
+        if (vrcam.localRotation.y > turnLThreshold)
         {
             car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
+        }
+
+        if (vrcam.localRotation.y < turnRThreshold)
+        {
+            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
+        }
+        else
+        {
+            car.rotation = Quaternion.Euler(0,0,0);
         }
        
     }

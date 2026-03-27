@@ -49,7 +49,6 @@ public class movement : MonoBehaviour
         }
         else if (vrcam.localPosition.z < OgPos.localPosition.z)
         {
-            
             characterController.Move(-car.forward * (moveSpeed * Time.deltaTime)); 
         }
 
@@ -64,19 +63,19 @@ public class movement : MonoBehaviour
         }
         
 
-        if (vrcam.localRotation.y > turnLThreshold)
+        if (vrcam.rotation.y > -2)
         {
-            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
+            car.rotation = vrcam.rotation;
+            //Quaternion.Euler(0,vrcam.eulerAngles.y,0);
         }
 
-        if (vrcam.localRotation.y < turnRThreshold)
+        float headyaw = vrcam.eulerAngles.y;
+
+        float normyaw = headyaw > 180f ? headyaw - 360f : headyaw;
+        if (Mathf.Abs(normyaw) > 2f)
         {
-            car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
+            car.rotation = Quaternion.Euler(0,headyaw,0);
         }
-        else
-        {
-            car.rotation = Quaternion.Euler(0,0,0);
-        }
-       
+
     }
 }

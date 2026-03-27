@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -15,6 +16,13 @@ public class movement : MonoBehaviour
     public float gravity = -9.81f;
 
     public float accel = 0.01f;
+    
+    public float rotationSpeed = 60f;
+    public float rotationThreshold = 15f;   // degrees required before turning
+
+    private float neutralYaw;
+    
+    [SerializeField] private TextMeshProUGUI speed;
 
     
 
@@ -25,12 +33,16 @@ public class movement : MonoBehaviour
         vrcam = Camera.main.transform;
         
         characterController = GetComponent<CharacterController>();
+        
      
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {            
+        float mov = accel * vrcam.localPosition.z;
+
+        speed.text = "Speed: "+ mov;
         if (characterController.isGrounded)
         {
             verticalvel = -2f;
@@ -42,15 +54,14 @@ public class movement : MonoBehaviour
 
         characterController.Move(new Vector3(0, verticalvel * Time.deltaTime, 0));
 
-        /*if (vrcam.localPosition.z > OgPos.localPosition.z)
+        if (vrcam.localPosition.z > OgPos.localPosition.z)
         {
-            float mov = accel * vrcam.localPosition.z;
             characterController.Move(car.forward * (mov * Time.deltaTime));
         }
         else if (vrcam.localPosition.z < OgPos.localPosition.z)
         {
             characterController.Move(-car.forward * (moveSpeed * Time.deltaTime)); 
-        }*/
+        }
 
         
         if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
@@ -62,14 +73,35 @@ public class movement : MonoBehaviour
             characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
         }
         
+        // headset steering
+        float yawDelta = Vector3.SignedAngle(car.forward, vrcam.forward, Vector3.up);
 
-        float headyaw = vrcam.eulerAngles.y;
-
-        float normyaw = headyaw > 180f ? headyaw - 360f : headyaw;
-        if (Mathf.Abs(normyaw) > 2f)
+        if (Mathf.Abs(yawDelta) > rotationThreshold)
         {
-            car.rotation = Quaternion.Euler(0,headyaw,0);
+            float turn = Mathf.Sign(yawDelta);
+            car.Rotate(Vector3.up * turn * rotationSpeed * Time.deltaTime);
         }
 
+    }
+    void HandleRotation()
+    {
+        Vector3 headForward = vrcam.forward;
+        headForward.y = 0f;
+        headForward.Normalize();
+
+        Vector3 carForward = car.forward;
+        carForward.y = 0f;
+        carForward.Normalize();
+
+        float yawDelta = Vector3.SignedAngle(carForward, headForward, Vector3.up);
+
+        if (yawDelta > rotationThreshold)
+        {
+            car.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        }
+        else if (yawDelta < -rotationThreshold)
+        {
+            car.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+        }
     }
 }

@@ -42,7 +42,7 @@ public class movement : MonoBehaviour
 
         characterController.Move(new Vector3(0, verticalvel * Time.deltaTime, 0));
 
-        if (vrcam.localPosition.z > OgPos.localPosition.z)
+        /*if (vrcam.localPosition.z > OgPos.localPosition.z)
         {
             float mov = accel * vrcam.localPosition.z;
             characterController.Move(car.forward * (mov * Time.deltaTime));
@@ -50,7 +50,7 @@ public class movement : MonoBehaviour
         else if (vrcam.localPosition.z < OgPos.localPosition.z)
         {
             characterController.Move(-car.forward * (moveSpeed * Time.deltaTime)); 
-        }
+        }*/
 
         
         if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
@@ -62,12 +62,6 @@ public class movement : MonoBehaviour
             characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
         }
         
-
-        if (vrcam.rotation.y > -2)
-        {
-            car.rotation = vrcam.rotation;
-            //Quaternion.Euler(0,vrcam.eulerAngles.y,0);
-        }
 
         float headyaw = vrcam.eulerAngles.y;
 

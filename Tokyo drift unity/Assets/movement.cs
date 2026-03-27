@@ -14,6 +14,8 @@ public class movement : MonoBehaviour
     private float verticalvel = 0f;
     public float gravity = -9.81f;
 
+    public float accel = 0.01f;
+
     
 
     [SerializeField] private CharacterController characterController;
@@ -42,8 +44,8 @@ public class movement : MonoBehaviour
 
         if (vrcam.localPosition.z > OgPos.localPosition.z)
         {
-            
-            characterController.Move(car.forward * (moveSpeed * Time.deltaTime));
+            float mov = accel * vrcam.localPosition.z;
+            characterController.Move(car.forward * (mov * Time.deltaTime));
         }
         else if (vrcam.localPosition.z < OgPos.localPosition.z)
         {

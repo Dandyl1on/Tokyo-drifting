@@ -2296,6 +2296,7 @@ MonoBehaviour:
   turnRThreshold: 0.5
   turnLThreshold: -0.5
   gravity: -9.81
+  accel: 50
   characterController: {fileID: 2130211224}
 --- !u!143 &2130211224
 CharacterController:

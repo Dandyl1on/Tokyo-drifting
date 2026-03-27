@@ -11,9 +11,10 @@ public class movement : MonoBehaviour
     public float turnRThreshold = 0.5f;
     public float turnLThreshold = -0.5f;
 
-    public float forThreshold = 0.2f;
-    public float backThreshold = -0.2f;
+    private float verticalvel = 0f;
+    public float gravity = -9.81f;
 
+    
 
     [SerializeField] private CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,37 +29,36 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = vrcam.position.x;
-
-        if (vrcam.position.z > OgPos.position.z+forThreshold)
+        if (characterController.isGrounded)
         {
-            Vector3 moveDir = car.forward;
-            moveDir.y = 0f;
-            moveDir.Normalize();
-            characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
+            verticalvel = -2f;
         }
-        else if (vrcam.position.z < OgPos.position.z+backThreshold)
+        else
         {
-            Vector3 moveDir = -car.forward;
-            moveDir.y = 0f;
-            moveDir.Normalize();
-            characterController.Move(moveDir * (moveSpeed * Time.deltaTime)); 
+            verticalvel += gravity * Time.deltaTime;
+        }
+
+        characterController.Move(new Vector3(0, verticalvel * Time.deltaTime, 0));
+
+        if (vrcam.localPosition.z > OgPos.localPosition.z)
+        {
+            
+            characterController.Move(car.forward * (moveSpeed * Time.deltaTime));
+        }
+        else if (vrcam.localPosition.z < OgPos.localPosition.z)
+        {
+            
+            characterController.Move(-car.forward * (moveSpeed * Time.deltaTime)); 
         }
 
         
-        if (vrcam.position.x > OgPos.position.x+turnRThreshold)
+        if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
         {
-            Vector3 moveDir = car.right;
-            moveDir.y = 0f;
-            moveDir.Normalize();
-            characterController.Move(moveDir * (moveSpeed * Time.deltaTime));
+            characterController.Move(car.right * (moveSpeed * Time.deltaTime));
         }
-        else if (vrcam.position.x < OgPos.position.x+turnLThreshold)
+        else if (vrcam.localPosition.x < OgPos.localPosition.x+turnLThreshold)
         {
-            Vector3 moveDir = -car.right;
-            moveDir.y = 0f;
-            moveDir.Normalize();
-            characterController.Move(moveDir * (moveSpeed * Time.deltaTime));   
+            characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
         }
 
         float rotAngle = vrcam.rotation.y;
@@ -66,5 +66,6 @@ public class movement : MonoBehaviour
         {
             car.rotation = Quaternion.Euler(0,vrcam.eulerAngles.y,0);
         }
+       
     }
 }

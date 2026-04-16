@@ -2058,7 +2058,7 @@ MonoBehaviour:
   turnLThreshold: -0.2
   gravity: -9.81
   accel: 50
-  rotationSpeed: 60
+  rotationSpeed: 30
   rotationThreshold: 15
   speed: {fileID: 1166420766}
   characterController: {fileID: 2130211224}

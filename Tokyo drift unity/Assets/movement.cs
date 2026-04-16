@@ -42,7 +42,7 @@ public class movement : MonoBehaviour
     {            
         float mov = accel * vrcam.localPosition.z;
 
-        speed.text = "Speed: "+ mov;
+        speed.text = "Speed: "+ mov*100;
         if (characterController.isGrounded)
         {
             verticalvel = -2f;

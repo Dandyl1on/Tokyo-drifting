@@ -72,15 +72,8 @@ public class movement : MonoBehaviour
         {
             characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
         }
-        
-        // headset steering
-        float yawDelta = Vector3.SignedAngle(car.forward, vrcam.forward, Vector3.up);
 
-        if (Mathf.Abs(yawDelta) > rotationThreshold)
-        {
-            float turn = Mathf.Sign(yawDelta);
-            car.Rotate(Vector3.up * turn * rotationSpeed * Time.deltaTime);
-        }
+        HandleRotation();
 
     }
     void HandleRotation()

@@ -729,7 +729,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592268982}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
   m_Name: 
@@ -1196,7 +1196,7 @@ Canvas:
   m_GameObject: {fileID: 1010806468}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 592268987}
   m_PlaneDistance: 3.3
   m_PixelPerfect: 0
@@ -2611,8 +2611,8 @@ MonoBehaviour:
   vrcam: {fileID: 592268983}
   OgPos: {fileID: 1472781639}
   car: {fileID: 242316844}
-  turnRThreshold: 0.5
-  turnLThreshold: -0.5
+  turnRThreshold: 0.2
+  turnLThreshold: -0.2
   gravity: -9.81
   accel: 50
   rotationSpeed: 60

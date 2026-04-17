@@ -24,8 +24,6 @@ public class movement : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI speed;
 
-    
-
     [SerializeField] private CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,15 +40,18 @@ public class movement : MonoBehaviour
     {            
         float mov = accel * vrcam.localPosition.z;
 
-        speed.text = "Speed: "+ mov*100;
+        int movText = (int) mov;
+
+        speed.text = movText * 10 + "\nkm/h";
         if (characterController.isGrounded)
         {
             verticalvel = -2f;
+            Debug.Log(characterController.isGrounded + "is -2f");
         }
         else
         {
             verticalvel += gravity * Time.deltaTime;
-            Debug.Log(characterController.isGrounded + " gravity");
+            Debug.Log(characterController.isGrounded + "fals?");
 
         }
         Vector3 movedir = Vector3.zero;

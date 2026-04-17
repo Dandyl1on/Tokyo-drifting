@@ -50,28 +50,33 @@ public class movement : MonoBehaviour
         else
         {
             verticalvel += gravity * Time.deltaTime;
+            Debug.Log(characterController.isGrounded + " gravity");
+
         }
-
-        characterController.Move(new Vector3(0, verticalvel * Time.deltaTime, 0));
-
+        Vector3 movedir = Vector3.zero;
+        //lean forward and back
         if (vrcam.localPosition.z > OgPos.localPosition.z)
         {
-            characterController.Move(car.forward * (mov * Time.deltaTime));
+            movedir += car.forward;
         }
         else if (vrcam.localPosition.z < OgPos.localPosition.z)
         {
-            characterController.Move(-car.forward * (moveSpeed * Time.deltaTime)); 
+            movedir -= car.forward;
         }
 
-        
+        //right left 
         if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
         {
-            characterController.Move(car.right * (moveSpeed * Time.deltaTime));
+            movedir += car.right;
         }
         else if (vrcam.localPosition.x < OgPos.localPosition.x+turnLThreshold)
         {
-            characterController.Move(-car.right * (moveSpeed * Time.deltaTime));   
+            movedir -= car.right;
         }
+
+        movedir.y = verticalvel;
+        characterController.Move(movedir*moveSpeed*Time.deltaTime);
+
 
         HandleRotation();
 

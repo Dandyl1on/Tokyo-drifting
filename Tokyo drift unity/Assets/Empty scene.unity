@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &92936647 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4094539096024332078, guid: ef044a01034b9ca489a8e775fc19d7e8, type: 3}
-  m_PrefabInstance: {fileID: 684601952}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &347670480
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +345,14 @@ PrefabInstance:
       propertyPath: speed
       value: 
       objectReference: {fileID: 1002046670}
+    - target: {fileID: 866889415304654294, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+      propertyPath: carAudio
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740053897391200791, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2019552175170287077, guid: 2426c6e8762286143b8e662233f85464, type: 3}
       propertyPath: m_LocalPosition.x
       value: -149.46606
@@ -396,6 +393,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4357324170506649151, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+      propertyPath: carAudio
+      value: 
+      objectReference: {fileID: 737980394}
     - target: {fileID: 4510754870995772018, guid: 2426c6e8762286143b8e662233f85464, type: 3}
       propertyPath: m_Name
       value: F1
@@ -403,8 +404,132 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6355316409532994969, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737980394}
+    - targetCorrespondingSourceObject: {fileID: 6355316409532994969, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 737980393}
   m_SourcePrefab: {fileID: 100100000, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+--- !u!1 &737980392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6355316409532994969, guid: 2426c6e8762286143b8e662233f85464, type: 3}
+  m_PrefabInstance: {fileID: 737980391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &737980393
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737980392}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e7447e8b5c82b6d4498081f274bc0c4c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &737980394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737980392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc3bbff6451dd44fa061707530f9d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarAudio
+  minSpeed: 0
+  maxSpeed: 500
+  minPitch: 0.8
+  maxPitch: 2
 --- !u!114 &1002046670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4094539096024332078, guid: ef044a01034b9ca489a8e775fc19d7e8, type: 3}
@@ -507,7 +632,7 @@ PrefabInstance:
     - target: {fileID: 7828660499929226827, guid: ef044a01034b9ca489a8e775fc19d7e8, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 2142613983}
+      objectReference: {fileID: 0}
     - target: {fileID: 7961692592961681994, guid: ef044a01034b9ca489a8e775fc19d7e8, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
@@ -727,11 +852,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &2142613983 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8615204141684772509, guid: 2426c6e8762286143b8e662233f85464, type: 3}
-  m_PrefabInstance: {fileID: 737980391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

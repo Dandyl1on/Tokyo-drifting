@@ -23,6 +23,8 @@ public class movement : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI speed;
 
+    [SerializeField] private CarAudio carAudio;
+
     [SerializeField] private CharacterController characterController;
 
     public ParticleSystem speedlines;
@@ -44,6 +46,8 @@ public class movement : MonoBehaviour
     void Update()
     {            
         float mov = accel * vrcam.localPosition.z;
+
+        carAudio.SetSpeed(Mathf.Abs(mov) * 100f);
 
         float lean = vrcam.localPosition.z - OgPos.localPosition.z;
         float leanX = vrcam.localPosition.x - OgPos.localPosition.x;
@@ -89,7 +93,7 @@ public class movement : MonoBehaviour
         var speedlinesEmission = speedlines.emission;
         
         float speedFactor = Mathf.Abs(vrcam.localPosition.z - OgPos.localPosition.z);        
-        float emissionRate = Mathf.Clamp(speedFactor * 1, 0f, maxspeedline);
+        float emissionRate = Mathf.Clamp(speedFactor * 75, 0f, maxspeedline);
         speedlinesEmission.rateOverTime = emissionRate;
         
         Debug.Log(movedir.magnitude);

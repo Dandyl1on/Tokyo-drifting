@@ -52,6 +52,9 @@ public class movement : MonoBehaviour
         float lean = vrcam.localPosition.z - OgPos.localPosition.z;
         float leanX = vrcam.localPosition.x - OgPos.localPosition.x;
         
+        bool isDrifting = Mathf.Abs(leanX) > turnRThreshold && lean > 0f;
+        float driftMultiplier = isDrifting ? 2f : 1f;
+
 
         int movText = (int) mov;
 
@@ -65,8 +68,11 @@ public class movement : MonoBehaviour
             verticalvel += gravity * Time.deltaTime;
         }
         Vector3 movedir = Vector3.zero;
+        
+        movedir += car.forward * (lean * accel * driftMultiplier);
+
         //lean forward and back
-        if (vrcam.localPosition.z > OgPos.localPosition.z)
+        /*if (vrcam.localPosition.z > OgPos.localPosition.z)
         {
             movedir += car.forward * (lean * accel);
         }
@@ -74,7 +80,7 @@ public class movement : MonoBehaviour
         {
             movedir += car.forward * (lean * accel);
             
-        }
+        }*/
 
         //right left 
         if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
@@ -86,6 +92,7 @@ public class movement : MonoBehaviour
             movedir += car.right * (leanX * accel);
             
         }
+        
 
         movedir.y = verticalvel;
         characterController.Move(movedir*Time.deltaTime);

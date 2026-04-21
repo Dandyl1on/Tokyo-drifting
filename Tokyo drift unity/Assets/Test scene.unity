@@ -1188,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &308483122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1208,8 +1208,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25.54361, y: 8.074343, z: 0.9323273}
-  m_Center: {x: -0.73324585, y: 1.1826305, z: -4.232231}
+  m_Size: {x: 25.54361, y: 8.074343, z: 5.5620728}
+  m_Center: {x: -0.73324585, y: 1.1826305, z: -1.9173584}
 --- !u!4 &308483123
 Transform:
   m_ObjectHideFlags: 0
@@ -8703,7 +8703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1056441652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8723,8 +8723,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 43.826916, y: 8.074343, z: 0.93232703}
-  m_Center: {x: 8.408407, y: 1.1826305, z: -4.232231}
+  m_Size: {x: 43.826916, y: 8.074343, z: 10.929395}
+  m_Center: {x: 8.408407, y: 1.1826305, z: -9.230768}
 --- !u!4 &1056441653
 Transform:
   m_ObjectHideFlags: 0
@@ -9164,8 +9164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 26.487598, y: 4.2215157, z: 1.2176208}
-  m_Center: {x: 10.807131, y: -1.6107578, z: -0.108810425}
+  m_Size: {x: 26.487598, y: 4.2215157, z: 6.8206177}
+  m_Center: {x: 10.807131, y: -1.6107578, z: -2.9103088}
 --- !u!4 &1220025898
 Transform:
   m_ObjectHideFlags: 0
@@ -11052,7 +11052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1784162647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11072,8 +11072,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 39.09586, y: 8.074343, z: 0.93232703}
-  m_Center: {x: -7.5093727, y: 1.1826305, z: -4.232231}
+  m_Size: {x: 39.09586, y: 10.785405, z: 7.5182533}
+  m_Center: {x: -7.5093727, y: 2.5381618, z: -7.525195}
 --- !u!4 &1784162648
 Transform:
   m_ObjectHideFlags: 0

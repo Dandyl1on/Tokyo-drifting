@@ -108,14 +108,11 @@ public class movement : MonoBehaviour
         speedlinesEmission.rateOverTime = emissionRate;
         
         Debug.Log(movedir.magnitude);
-        if (CheckPoint >0)
-        {
-            updatelaptime();            
-        }
+        
 
         updatelaptext();
 
-        if (CheckPoint == 5)
+        if (CheckPoint == 2)
         {
             lastlaptime = currentlaptime;
             if (bestlaptime == 0 ||currentlaptime < bestlaptime)
@@ -123,7 +120,12 @@ public class movement : MonoBehaviour
                 bestlaptime = currentlaptime;
             }
             currentlaptime = 0f;
-            CheckPoint = 1;
+            CheckPoint = 0;
+        }
+
+        if (CheckPoint > 0)
+        {
+            updatelaptime();
         }
 
         HandleRotation();
@@ -175,6 +177,14 @@ public class movement : MonoBehaviour
         if (other.CompareTag("Checkpoint"))
         {
             CheckPoint++;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Checkpoint"))
+        {
+            CheckPoint = 1;
         }
     }
 }

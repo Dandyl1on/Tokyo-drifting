@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Filtering;
 
 public class movement : MonoBehaviour
 {
@@ -30,6 +32,18 @@ public class movement : MonoBehaviour
     public ParticleSystem speedlines;
     private int maxspeedline = 75;
     private int linespeed;
+
+    public int CheckPoint;
+
+    public float currentlaptime;
+    public float bestlaptime;
+    public float lastlaptime;
+    
+
+    [SerializeField] private TextMeshProUGUI currentlaptext;
+    [SerializeField] private TextMeshProUGUI bestlaptext;
+    [SerializeField] private TextMeshProUGUI lastlaptext;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,17 +84,7 @@ public class movement : MonoBehaviour
         Vector3 movedir = Vector3.zero;
         
         movedir += car.forward * (lean * accel * driftMultiplier);
-
-        //lean forward and back
-        /*if (vrcam.localPosition.z > OgPos.localPosition.z)
-        {
-            movedir += car.forward * (lean * accel);
-        }
-        else if (vrcam.localPosition.z < OgPos.localPosition.z)
-        {
-            movedir += car.forward * (lean * accel);
-            
-        }*/
+        
 
         //right left 
         if (vrcam.localPosition.x > OgPos.localPosition.x+turnRThreshold)
@@ -104,6 +108,23 @@ public class movement : MonoBehaviour
         speedlinesEmission.rateOverTime = emissionRate;
         
         Debug.Log(movedir.magnitude);
+        if (CheckPoint >0)
+        {
+            updatelaptime();            
+        }
+
+        updatelaptext();
+
+        if (CheckPoint == 5)
+        {
+            lastlaptime = currentlaptime;
+            if (bestlaptime == 0 ||currentlaptime < bestlaptime)
+            {
+                bestlaptime = currentlaptime;
+            }
+            currentlaptime = 0f;
+            CheckPoint = 1;
+        }
 
         HandleRotation();
 
@@ -127,6 +148,33 @@ public class movement : MonoBehaviour
         else if (yawDelta < -rotationThreshold)
         {
             car.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    void updatelaptime()
+    {
+        currentlaptime += Time.deltaTime;
+    }
+
+    void updatelaptext()
+    {
+        currentlaptext.text = "Current lap " + FormatTime(currentlaptime);
+        lastlaptext.text = "Last lap " + FormatTime(lastlaptime);
+        bestlaptext.text = "Best lap " + FormatTime(bestlaptime);
+    }
+
+    private string FormatTime(float time)
+    {
+        int minutes = (int)time / 60;
+        float seconds = time % 60;
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
+    } 
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Checkpoint"))
+        {
+            CheckPoint++;
         }
     }
 }

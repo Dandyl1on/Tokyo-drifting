@@ -40,7 +40,7 @@ public class CarAudio : MonoBehaviour
 
     void EngineSound()
     {
-        // Convert speed to 0–1 range
+        // Convert speed to 0â€“1 range
         float t = Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed);
 
         // Target pitch based on speed

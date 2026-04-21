@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Filtering;
@@ -43,6 +45,7 @@ public class movement : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentlaptext;
     [SerializeField] private TextMeshProUGUI bestlaptext;
     [SerializeField] private TextMeshProUGUI lastlaptext;
+
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,7 +56,6 @@ public class movement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Mathf.Clamp(linespeed, 0f,75f);
 
-        
     }
 
     // Update is called once per frame
@@ -130,6 +132,8 @@ public class movement : MonoBehaviour
 
         HandleRotation();
 
+        
+
     }
     void HandleRotation()
     {
@@ -187,4 +191,6 @@ public class movement : MonoBehaviour
             CheckPoint = 1;
         }
     }
+
+    
 }

@@ -46,6 +46,8 @@ public class movement : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestlaptext;
     [SerializeField] private TextMeshProUGUI lastlaptext;
 
+    public bool isDrifting;
+
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -68,13 +70,15 @@ public class movement : MonoBehaviour
         float lean = vrcam.localPosition.z - OgPos.localPosition.z;
         float leanX = vrcam.localPosition.x - OgPos.localPosition.x;
         
-        bool isDrifting = Mathf.Abs(leanX) > turnRThreshold && lean > 0f;
+        isDrifting = Mathf.Abs(leanX) > turnRThreshold && lean > 0f;
         float driftMultiplier = isDrifting ? 2f : 1f;
 
+        
 
         int movText = (int) mov;
+        
+        
 
-        speed.text = movText * 10 + "\nkm/h";
         if (characterController.isGrounded)
         {
             verticalvel = -2f;
@@ -108,9 +112,6 @@ public class movement : MonoBehaviour
         float speedFactor = Mathf.Abs(vrcam.localPosition.z - OgPos.localPosition.z);        
         float emissionRate = Mathf.Clamp(speedFactor * 75, 0f, maxspeedline);
         speedlinesEmission.rateOverTime = emissionRate;
-        
-        Debug.Log(movedir.magnitude);
-        
 
         updatelaptext();
 
@@ -128,6 +129,20 @@ public class movement : MonoBehaviour
         if (CheckPoint > 0)
         {
             updatelaptime();
+        }
+        
+        if (isDrifting)
+        {
+            movText = (int)mov + 50;
+            speed.text = movText * 10 + "\nkm/h";
+            Debug.Log("move int"+mov+"drift multi" + driftMultiplier+"movedirection vector3" + movedir);
+            
+        }
+        else
+        {
+            speed.text = movText * 10 + "\nkm/h";
+            Debug.Log("move int"+mov+"drift multi" + driftMultiplier+"movedirection vector3" + movedir);
+
         }
 
         HandleRotation();

@@ -71,7 +71,7 @@ public class movement : MonoBehaviour
         float leanX = vrcam.localPosition.x - OgPos.localPosition.x;
         
         isDrifting = Mathf.Abs(leanX) > turnRThreshold && lean > 0f;
-        float driftMultiplier = isDrifting ? 2f : 1f;
+        float driftMultiplier = isDrifting ? 1.75f : 1f;
 
         
 
@@ -133,14 +133,14 @@ public class movement : MonoBehaviour
         
         if (isDrifting)
         {
-            movText = (int)mov + 50;
-            speed.text = movText * 10 + "\nkm/h";
+            movText = (int)mov;
+            speed.text = movText * 5+50 + "\nkm/h";
             Debug.Log("move int"+mov+"drift multi" + driftMultiplier+"movedirection vector3" + movedir);
             
         }
         else
         {
-            speed.text = movText * 10 + "\nkm/h";
+            speed.text = movText * 5 + "\nkm/h";
             Debug.Log("move int"+mov+"drift multi" + driftMultiplier+"movedirection vector3" + movedir);
 
         }
